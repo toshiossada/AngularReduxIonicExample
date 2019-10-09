@@ -1,0 +1,30 @@
+<div class="ion-padding custom-skeleton" *ngIf="!products">
+  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+  <ion-skeleton-text animated></ion-skeleton-text>
+  <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+  <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+</div>
+
+<ion-grid *ngIf="products">
+  <ion-row>
+    <ion-col size="2" *ngFor="let product of products">
+      <ion-card>
+        <img src="{{ product.image }}" alt="">
+        <ion-card-header>
+          <ion-card-subtitle>{{ product.title }}</ion-card-subtitle>
+          <ion-card-title>{{ product.price | currency: 'BRL' }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          por {{ product.brand }}
+        </ion-card-content>
+
+        <ion-button ion-item expand='full' class="activated" (click)="add(product)">
+          <ion-icon name="cart" slot="start"></ion-icon>
+          <ion-label>Adicionar</ion-label>
+        </ion-button>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

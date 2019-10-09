@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { NavbarComponent } from '../components/navbar/navbar.component';
+import { ProductListComponent } from '../components/product-list/product-list.component';
+import { ShoppingCartComponent } from '../components/shopping-cart/shopping-cart.component';
 
 @NgModule({
   imports: [
@@ -18,6 +21,11 @@ import { HomePage } from './home.page';
       }
     ])
   ],
-  declarations: [HomePage]
+  declarations: [
+    HomePage,
+    NavbarComponent,
+    ProductListComponent,
+    ShoppingCartComponent,
+  ]
 })
-export class HomePageModule {}
+export class HomePageModule { }

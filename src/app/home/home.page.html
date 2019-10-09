@@ -1,14 +1,23 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-navbar></app-navbar>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="8">
+        <app-product-list></app-product-list>
+      </ion-col>
+      <ion-col size="4">
+        <app-shopping-cart></app-shopping-cart>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="end">
+      <ion-title>{{ (cart$ | async).total | currency: 'BRL' }}</ion-title>
+      <ion-button color="success" fill="solid">Checkout</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>
